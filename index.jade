@@ -1,0 +1,312 @@
+doctype html
+html
+  head
+      title Async + Await
+      meta(charset='utf-8')
+      script(src='slides.js')
+      link(href="https://fonts.googleapis.com/css?family=Gravitas+One|Yeseva+One" rel="stylesheet")
+
+      link(href='styles.css'  rel='stylesheet' type='text/css')
+    body
+      section.slides.layout-regular.template-default
+        article.first
+          //- h1(style="font-size:250px;") Async + Await
+          h3
+            img(src="images/sink.svg" width="400")
+            img(src="images/weight.svg" width="400")
+          p(style="margin:0;"): small (a sink and a weight)
+          p(style="margin:0;").yellow I _promise_ you'll like this talk
+          a(href='http://wesbos.com') wesbos.com
+          a(href='http://twitter.com/wesbos') @wesbos
+
+        article
+          h1 I&apos;m<br>Wes Bos
+          p: br
+          p: img(src="images/canada-flag.png")
+
+        article
+          h2(style="font-size:60px;") These slides will be available shortly after this talk <br>I&apos;ll tweet the link out.
+          img(src='images/Twitter_logo_white.png', width='300' style="margin:100px auto")
+
+          h2
+            a(href='http://twitter.com/wesbos', target='_blank') @wesbos
+
+        //- article(style='background:white;')
+        //-   a(href='https://ES6.io/?utm_source=toolingtalk&utm_medium=link&utm_campaign=talkpromo')
+        //-     img.wide(src='https://ES6.io/images/es6-facebook-share.png')
+        //-   a(href='https://ES6.io/?utm_source=toolingtalk&utm_medium=link&utm_campaign=talkpromo') ES6.io
+
+
+        //- article(style='background:white;')
+        //-   a(href='https://ReactForBeginners.com/?utm_source=toolingtalk&utm_medium=link&utm_campaign=talkpromo')
+        //-     img.wide(src='https://reactforbeginners.com/images/facebook-share.png')
+        //-   a(href='https://ReactForBeginners.com/?utm_source=toolingtalk&utm_medium=link&utm_campaign=talkpromo') ReactForBeginners.com
+
+        //- article(style='background:white;')
+        //-   a(href='https://LearnNode.com/?utm_source=toolingtalk&utm_medium=link&utm_campaign=talkpromo')
+        //-     img.wide(src='https://learnnode.com/images/NODE/node-facebook-share.jpg')
+        //-   a(href='https://LearnNode.com/?utm_source=toolingtalk&utm_medium=link&utm_campaign=talkpromo') LearnNode.com
+
+        //- article
+        //-   img.high(src="https://pbs.twimg.com/media/DLTTKRoXUAEwuZR.jpg:large")
+        //-   a(href='https://syntax.fm') Syntax.fm
+        article
+          h1 Flow Control in JS is Hard
+
+        article.section
+          h1 Promises
+          p.sub The Foundation of Async + Await
+
+        article
+          h2.skew: mark Promises are an IOU for something that will happen in the future
+
+        article
+          ul.build
+            li AJAX call returning data
+            li Access to a User's webcam
+            li Resizing an image
+
+        article
+          h2.skew: mark All of these things take time, we simply kick off the process and move along with our lives.
+
+        article
+          h1 But why do we do it this way?
+
+        article
+          h1 JavaScript Waits for no one!
+
+        article
+          h1 Almost Everything Is Asynchronous
+
+        article
+          h2.title: mark Let's say we wanted to do a few things:
+          ul.build
+            li Make Coffee
+            li Drink Coffee
+            li Cook Breakfast
+            li Eat Breakfast
+
+        article
+          p: mark Do you need to finish making coffee before you can Start Breakfast?
+          br
+          br
+          p: mark Would it make sense to <mark>wait until</mark> coffee is made and consumed before we even start cooking breakfast?
+
+        article
+          h2: mark no!
+          p we want to start one thing, come back to it once it's finished, and deal with the result accordingly!
+
+        article
+          h1 Christmas Tree Callback Hell
+
+        article
+          img.wide(src="./images/screenshots/mvjp.png")
+
+        article
+          img.high(src="./images/screenshots/mw8s.png")
+
+
+        article
+          img.high(src="./images/screenshots/mul6.png")
+
+        article
+          h2 Most new browser APIs are built on Promises
+
+        article
+          h2: mark fetch()
+
+        article
+          img.wide(src="./images/screenshots/mvNc.png")
+
+        article
+          h2: mark Axios
+
+        article
+          img.wide(src="./images/screenshots/mvvk.png")
+
+        article
+          h2: mark Many, many more
+          p.sub.flat PaymentRequest, getUserMedia(), Web Animation API
+
+        article
+          h1 It's easy to make your own too!
+
+        article
+          img.wide(src="./images/screenshots/mvlO.png")
+
+        article
+          img.high(src="./images/screenshots/mw1Y.gif")
+
+        article
+          h2: mark we get it<br>Promises are great.
+
+        article.section
+          h1 buuuuuuttt
+
+
+        article.section
+          h1 What's the deal with .then()?
+          p.sub It's still kinda callback-y
+
+        article
+          h2 Any code that needs to come after the promise still needs to be in the final .then() callback 😕😕😕
+
+        article.section
+          h1 Async <br>+<br> Await
+
+        article.section
+          h2: mark Async + Await still is promises,<br>but with a really nice syntax
+
+        article
+          img.high(src="./images/screenshots/mul6.png")
+
+        article
+          img.high(src="./images/screenshots/mv6R.png")
+
+        article
+          h1 Let's break it down
+
+        article
+          h2: mark JavaScript is almost entirely asynchronous / non-blocking
+
+        article
+          h1 great!<br>But it's hard to read/write
+
+        article
+          h1 PHP
+          img.wide(src="./images/screenshots/mufS.png")
+
+        article
+          h1 JS
+          img.wide(src="./images/screenshots/mw88.png")
+
+        article
+          .build
+            h2 😕😕😕
+            p The PHP is easier to read
+            p The JS is more performant
+            p I'm not really happy
+
+        article
+          h1 Synchronous looking code, without the wait!
+
+        article
+          h1 How does it work?
+
+        article
+          h1 1. Mark it as Async
+
+        article
+          img.wide(src="./images/screenshots/mvxm.png")
+
+        article
+          h1 2. await inside your async fn
+
+        article
+          img.wide(src="./images/screenshots/mvLf.png")
+
+        article
+         h1 Best of Both Worlds!
+
+        article
+         h1 Another Example
+
+        article
+          h2 Slow...
+          img.wide(src="./images/screenshots/mvHv.png")
+
+        article
+          h2: mark Why wait for Wes?
+          p.sub Remember, async+await is just promises
+
+        article
+          img.wide(src="./images/screenshots/mvPr.png", alt="")
+
+        article
+          h1 Error Handling
+          p.sub A few options
+
+
+        //- Option 1
+        article
+          p.sub Option #1
+          h1 Make sure Errors Don't Happen
+          p.sub Why waste dev time on something that should never happen? #ProblemSolved
+
+        //- Option 2
+        article
+          p.sub Option #2
+          h1 Try / Catch
+          p.sub Wrap that sucker in a safety blanket
+
+        article
+          img.wide(src="http://wes.io/nslE/content")
+
+        //- Option 3
+        article
+          p.sub Option #4
+          h1 Higher Order Function
+          p.sub Async Functions can chain a .then()
+
+        article
+          p Just Live Your Life
+          img.wide(src="http://wes.io/nsg8/content")
+
+        article
+          p Create a HOF
+          img.high(src="http://wes.io/nsi4/content")
+
+        article
+          p Hot Shot Implicit Return (WHAT)
+          img.wide(src="http://wes.io/nsbK/content")
+
+        article
+          p Create a new function with your HOF
+          img.wide(src="http://wes.io/nsbz/content")
+
+        article
+          h1 Very Handy in Node & Express!
+
+        article
+          img.wide(src="http://wes.io/ntkI/content")
+
+        article
+          img.wide(src="http://wes.io/nuqs/content")
+          p Normally we'd Handle each possible Error with next()
+
+        article
+          img.wide(src="http://wes.io/nunX/contnet")
+
+        article
+          h2: mark 🤔 But that doesn't cover errors we throw, unhandled errors or syntax errors...
+
+        article
+          h1.medium We need to catch all errors and pass along to the next middleware function
+
+        article
+          h1 Enter HOF
+
+        article
+          img.wide(src="http://wes.io/nteh/content")
+
+        article
+          p: mark Then we just wrap our routes!
+          img.wide(src="http://wes.io/nuda/content")
+          p: mark Any unhandled error will simply get passed along to next()
+
+        //- Option 4
+        article
+          p.sub Option #4
+          h1 Handle The Error When you Call it
+
+        article
+          img.wide(src="http://wes.io/nv7u/content")
+
+        //- Option 2
+        article
+          p.sub Option #5
+          h1.medium Node's Unhandled Rejection Event
+          p.sub Node.js will soon exit your process on unhandled rejected promises
+
+        article
+          img.wide(src="http://wes.io/ntqa/content")

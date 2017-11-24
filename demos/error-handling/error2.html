@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+  <script>
+
+    // async function displayData() {
+    //   try {
+    //     const wes = await axios.get('https://api.github.com/users/wesbos');
+    //     console.log(data); // Work With Data
+    //   } catch (err) {
+    //     console.log(err); // Handle Error
+    //   }
+    // }
+
+    // getData();
+
+
+
+    // Create a function without any error handling
+    async function yolo() {
+      // do something that errors out
+      const wes = await axios.get('https://no.com')
+    }
+
+
+
+    // make a function to handle that error
+    function handleError(fn) {
+      return function (...params) {
+        return fn(...params).catch(function (err) {
+          // do something with the error!
+          console.error(`Oops!`, err);
+        });
+      }
+    }
+
+    // Wrap it in a HOC
+    const safeYolo = handleError(yolo);
+    safeYolo();
+
+
+
+    // Or if you are a hot shot
+
+    const handleError = fn => (...params) => fn(...params).catch(console.error);
+
+    // Start with a regular Route where an error could happen
+    const getOrders = async (req, res, next) => {
+      const orders = Orders.find({ email: req.user.email });
+      // Something Goes Wrong
+      if (!orders.length) throw Error('No Orders Found');
+
+    }
+    const getOrders = async (req, res, next) => {
+      const orders = Orders.find({ email: req.user.email });
+      // Something Goes Wrong
+      if (!orders.length) throw Error('No Orders Found');
+
+    }
+
+
+    next('No Orders Found!');
+
+
+
+
+    // passes this along to the next middleware function
+
+    // Since this unhandled, this route would case the app to quit
+
+
+    router.get('/orders', catchErrors(getOrders));
+
+
+    const displayErrors = async (error, req, res, next) => {
+      res.status(err.status || 500);
+      res.render('error', { error });
+    }
+
+    // any time we call next('Something Happened') displayErrors will kick in
+    app.use(displayErrors);
+
+
+    const catchErrors = (fn) => {
+      return function (req, res, next) {
+        return fn(req, res, next).catch(next);
+      };
+    };
+
+    // or Hot Shot
+    const catchErrors = (fn) =>
+      (req, res, next) => fn(req, res, next).catch(next)
+
+
+    async function loadData() {
+      const wes = await axios.get('...');
+    }
+
+    loadData.catch(dealWithErrors);
+
+
+    process.on('unhandledRejection', error => {
+      console.log('unhandledRejection', error);
+    });
+
+
+
+  </script>
+</body>
+
+</html>
