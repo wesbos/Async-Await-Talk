@@ -12,24 +12,31 @@ html
         article.first
           //- h1(style="font-size:250px;") Async + Await
           h3
-            img(src="images/sink.svg" width="400")
-            img(src="images/weight.svg" width="400")
-          p(style="margin:0;"): small (a sink and a weight)
-          p(style="margin:0;").yellow I _promise_ you'll like this talk
-          a(href='http://wesbos.com') wesbos.com
-          a(href='http://twitter.com/wesbos') @wesbos
+            img(src="images/sink.svg" width="300")
+            img(src="images/weight.svg" width="300")
+          h1: mark Async + Await
+          p
+          p
+          p.sub(style="margin:0;").yellow I <strong>promise</strong> you'll like this talk
+          p.sub: small Ugh
 
         article
-          h1 I&apos;m<br>Wes Bos
+          h1: mark I&apos;m Wes Bos
           p: br
-          p: img(src="images/canada-flag.png")
+          p.sub
+            img(src="images/canada-flag.png")
+            img(src="images/canada-flag.png")
+            img(src="images/canada-flag.png")
+            img(src="images/canada-flag.png")
+            img(src="images/canada-flag.png")
+            img(src="images/canada-flag.png")
 
-        article
-          h2(style="font-size:60px;") These slides will be available shortly after this talk <br>I&apos;ll tweet the link out.
-          img(src='images/Twitter_logo_white.png', width='300' style="margin:100px auto")
+        //- article
+        //-   h2(style="font-size:60px;") These slides will be available shortly after this talk <br>I&apos;ll tweet the link out.
+        //-   img(src='images/Twitter_logo_white.png', width='300' style="margin:100px auto")
 
-          h2
-            a(href='http://twitter.com/wesbos', target='_blank') @wesbos
+        //-   h2
+        //-     a(href='http://twitter.com/wesbos', target='_blank') @wesbos
 
         //- article(style='background:white;')
         //-   a(href='https://ES6.io/?utm_source=toolingtalk&utm_medium=link&utm_campaign=talkpromo')
@@ -149,7 +156,7 @@ html
           p.sub It's still kinda callback-y
 
         article
-          h2 Any code that needs to come after the promise still needs to be in the final .then() callback 😕😕😕
+          h2 Any code that needs to come <mark>after the promise</mark> still needs to be <mark>in the final .then()</mark> callback<br>😕😕😕
 
         article.section
           h1 Async <br>+<br> Await
@@ -310,3 +317,15 @@ html
 
         article
           img.wide(src="http://wes.io/ntqa/content")
+
+        article
+          h1: mark It's the Future!
+
+        article
+          h2: mark Tips for Starting today
+          ol.build(style="list-style:none;")
+            li Write your APIs in Promises
+            li Flow Control with Async + Await
+            li Convert Older APIs with Promisify
+            li Choose an Error Handling Strategy
+
